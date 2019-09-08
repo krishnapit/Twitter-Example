@@ -1,0 +1,162 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Twitter Application",
+		"_postman_id": "61ec6d88-d4e7-43c7-fea0-f650ab563b96",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:9090/users/signUp",
+			"request": {
+				"url": "http://localhost:9090/users/signUp",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\":\"krisgmail\",\n\"password\":\"8523696333\",\n\"name\":\"krishna Palabindala\",\n\"gender\":\"Male\"\n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "follow user",
+			"request": {
+				"url": "http://localhost:9090/twitter/follow/Pradyu@gmail.com",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJMYXRoYUBnbWFpbC5jb20iLCJleHAiOjE1Njc5NjE4NDMsImlhdCI6MTU2Nzk0Mzg0M30.O3zN3LMKLhR4McPIaq8TERbYoevJuWSYhAtWEVFdHlUkaIwFpyoLGyiIxJbL25pKenXOjdKuwpGIe6qK5c4tDg",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"url": "http://localhost:9090/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"Latha@gmail.com\",\n\"password\":\"9553192958\"\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Followers",
+			"request": {
+				"url": "http://localhost:9090/twitter/followers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQcmFkeXVAZ21haWwuY29tIiwiZXhwIjoxNTY3OTY3OTAzLCJpYXQiOjE1Njc5NDk5MDN9.uKsfqS_Ktt9f1yDmJwa59948AhxAM-StFOxaXQ3FpMTYn6I6V0K5U5VEL4QnBMb01iLmc8aBIC3NykYDCytBkw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "home - top 10 tweets",
+			"request": {
+				"url": "http://localhost:9090/twitter/followers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQcmFkeXVAZ21haWwuY29tIiwiZXhwIjoxNTY3OTY3OTAzLCJpYXQiOjE1Njc5NDk5MDN9.uKsfqS_Ktt9f1yDmJwa59948AhxAM-StFOxaXQ3FpMTYn6I6V0K5U5VEL4QnBMb01iLmc8aBIC3NykYDCytBkw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SignUp",
+			"request": {
+				"url": "http://localhost:9090/users/signUp",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n\"email\":\"Latha@gmail.com\",\r\n\"password\":\"9553192958\",\r\n\"name\":\"Swarna Latha\",\r\n\"gender\":\"Female\"\r\n\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tweet",
+			"request": {
+				"url": "http://localhost:9090/twitter/tweet",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUaGlydUBnbWFpbC5jb20iLCJleHAiOjE1Njc5NzYyMzgsImlhdCI6MTU2Nzk1ODIzOH0.-06bg4SeMJf0BoHPMjaw1fL0zVC8b-KkmAC22B8MO1crgMfno3FbnSQkUohtuFgPglhMAHIoX0Wzr_CeBD2ccA",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\":\"This is Thiru 10th post\"\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
