@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.twitter.entity.LikeTweet;
 import com.twitter.entity.Message;
 import com.twitter.entity.TwitterFollower;
 import com.twitter.entity.User;
@@ -120,7 +121,26 @@ public class TwitterController {
 	}
 
 	@PostMapping("/like")
-	public String likeTweet(@RequestBody Message like) {
-		return null;
+	public ResponseEntity<String> likeTweet(@RequestBody LikeTweet like) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email = auth.getName();
+		try {
+			User user = twitterService.userInfo(email);
+			like.setUser(user);
+			twitterService.likeTweet(like);
+		} catch (TwitterException e) {
+			throw new TwitterException("Problem in liking tweet");
+		}
+
+		// Message msg =
+		// twitterService.getTwitterIdByMessageId(like.getMessage().getMessageId());
+
+		return new ResponseEntity<String>(email + " likes the tweet posted  ", HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/numberOfLikes")
+	public Long numberOfLikes(Message message) {
+		System.err.println("entered ?");
+		return twitterService.numberOfLikes(message);
 	}
 }

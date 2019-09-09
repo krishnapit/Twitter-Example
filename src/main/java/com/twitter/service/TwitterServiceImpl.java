@@ -8,8 +8,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.twitter.dao.FollowerDao;
+import com.twitter.dao.LikeDao;
 import com.twitter.dao.MessageDao;
 import com.twitter.dao.TwitterDao;
+import com.twitter.entity.LikeTweet;
 import com.twitter.entity.Message;
 import com.twitter.entity.TwitterFollower;
 import com.twitter.entity.User;
@@ -24,6 +26,9 @@ public class TwitterServiceImpl implements TwitterService {
 	public FollowerDao followerRepository;
 	@Autowired
 	public MessageDao messageRepository;
+
+	@Autowired
+	public LikeDao likeRepository;
 
 	@Override
 	public void followingUser(TwitterFollower follow) {
@@ -71,4 +76,31 @@ public class TwitterServiceImpl implements TwitterService {
 		// }
 		return user;
 	}
+
+	@Override
+	public LikeTweet likeTweet(LikeTweet like) {
+		LikeTweet likeTweet = likeRepository.save(like);
+
+		return likeTweet;
+	}
+
+	@Override
+	public Long numberOfLikes(Message message) {
+
+		List<LikeTweet> likes = likeRepository.numberOfLikesByMessage(message.getMessageId());
+
+		return likes.stream().count();
+
+	}
+
+	/**
+	 * @Override public Message getTwitterIdByMessageId(int messageId) throws
+	 *           UsernameNotFoundException { Optional<Message> msg =
+	 *           messageRepository.findById(Long.valueOf(messageId)); // if (user ==
+	 *           null) { // throw new UsernameNotFoundException("User not found with
+	 *           email address: " +
+	 * 
+	 *           // return user; // } return msg.get(); }
+	 */
+
 }
