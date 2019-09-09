@@ -92,6 +92,28 @@
 			"response": []
 		},
 		{
+			"name": "Followers copy",
+			"request": {
+				"url": "http://localhost:9090/twitter/followers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQcmFkeXVAZ21haWwuY29tIiwiZXhwIjoxNTY3OTY3OTAzLCJpYXQiOjE1Njc5NDk5MDN9.uKsfqS_Ktt9f1yDmJwa59948AhxAM-StFOxaXQ3FpMTYn6I6V0K5U5VEL4QnBMb01iLmc8aBIC3NykYDCytBkw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "home - top 10 tweets",
 			"request": {
 				"url": "http://localhost:9090/twitter/followers",
@@ -154,6 +176,53 @@
 					"mode": "raw",
 					"raw": "{\n\t\"message\":\"This is Thiru 10th post\"\n\t\n}"
 				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TweetLike",
+			"request": {
+				"url": "http://localhost:9090/twitter/like",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJMYXRoYUBnbWFpbC5jb20iLCJleHAiOjE1Njc5NzkwMDEsImlhdCI6MTU2Nzk2MTAwMX0.YbtbBkI-FdgVZnk3vtERjDF_arQJkWfANRl-N9MGK3ZRyjzT3tNqH3N9qNV9tCBiesfopJsQt401tv4ACEvs_Dw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\":\"This is Thiru 9th post\",\n\t\"email\":\"Thiru@gmail.com\"\n\t\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "numberOfLikes",
+			"request": {
+				"url": "http://localhost:9090/twitter/numberOfLikes/112",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJQcmFkeXVAZ21haWwuY29tIiwiZXhwIjoxNTY3OTY3OTAzLCJpYXQiOjE1Njc5NDk5MDN9.uKsfqS_Ktt9f1yDmJwa59948AhxAM-StFOxaXQ3FpMTYn6I6V0K5U5VEL4QnBMb01iLmc8aBIC3NykYDCytBkw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
 				"description": ""
 			},
 			"response": []
